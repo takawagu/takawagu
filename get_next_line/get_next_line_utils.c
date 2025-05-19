@@ -1,0 +1,90 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/19 13:37:47 by takawagu          #+#    #+#             */
+/*   Updated: 2025/05/19 13:43:40 by takawagu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line.h"
+#include <stdlib.h>
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
+		i++;
+	}
+	if ((char)c == '\0')
+		return ((char *)(s + i));
+	return (NULL);
+}
+
+char	*ft_strdup(const char *s)
+{
+	size_t	len;
+	size_t	i;
+	char	*copy;
+
+	len = ft_strlen(s);
+	copy = ft_calloc(len + 1, sizeof(char));
+	if (copy == NULL)
+		return ((NULL));
+	i = 0;
+	while (i < len)
+	{
+		copy[i] = s[i];
+		i++;
+	}
+	return (copy);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*res;
+	char	*tmp;
+
+	if (!s1 || !s2)
+		return (NULL);
+	res = malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);
+	if (!res)
+		return (NULL);
+	tmp = res;
+	while (*s1)
+		*tmp++ = *s1++;
+	while (*s2)
+		*tmp++ = *s2++;
+	*tmp = '\0';
+	return (res);
+}
+
+ssize_t	safe_write(int fd, const void *buf, size_t count)
+{
+	ssize_t	ret;
+
+	ret = write(fd, buf, count);
+	if (ret < 0)
+		return (-1);
+	return (ret);
+}
