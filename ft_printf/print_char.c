@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 09:14:25 by takawagu          #+#    #+#             */
-/*   Updated: 2025/05/12 13:03:10 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/05/19 16:10:11 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 int	print_char(char c)
 {
-	write(1, &c, 1);
-	return (1);
+	ssize_t	ret;
+
+	ret = write(1, &c, 1);
+	if (ret < 0)
+		return (-1);
+	return ((int)ret);
 }
 
 // #include <stdio.h>

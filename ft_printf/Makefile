@@ -6,7 +6,7 @@
 #    By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/25 10:06:26 by takawagu          #+#    #+#              #
-#    Updated: 2025/05/15 12:13:10 by takawagu         ###   ########.fr        #
+#    Updated: 2025/05/19 12:17:17 by takawagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ $(NAME): $(OBJS) $(LIBFT_LIB)
 
 clean:
 	rm -f $(OBJS)
+	rm -f $(filter-out $(OBJS), *.o)
 	make clean -C $(LIBFT_DIR)
 
 fclean: clean

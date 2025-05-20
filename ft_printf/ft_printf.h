@@ -6,14 +6,14 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 09:04:08 by takawagu          #+#    #+#             */
-/*   Updated: 2025/05/15 09:43:37 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/05/19 16:10:03 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft.h"
+# include "libft/libft.h"
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>

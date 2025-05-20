@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 11:24:58 by takawagu          #+#    #+#             */
-/*   Updated: 2025/05/13 10:46:23 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/05/21 07:32:33 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static unsigned int	num_len_unsigned_int(unsigned int un)
 	unsigned int	len;
 
 	len = 1;
-	while (un > 9)
+	while (un >= 10)
 	{
 		un /= 10;
 		len++;

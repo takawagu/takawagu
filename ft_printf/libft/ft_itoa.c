@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 16:28:36 by takawagu          #+#    #+#             */
-/*   Updated: 2025/05/12 10:42:38 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/05/21 07:14:57 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 static int	num_len(int n)
 {
-	int	len;
+	int		len;
+	long	nb;
 
+	nb = n;
 	if (n <= 0)
 		len = 1;
 	else

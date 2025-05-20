@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 13:28:44 by takawagu          #+#    #+#             */
-/*   Updated: 2025/05/13 10:45:19 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/05/19 16:10:35 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,36 @@
 
 static int	putnbr_base_ulong(unsigned long n, const char *base)
 {
-	unsigned int	len;
+	int	len;
+	int	sub;
 
 	len = 0;
 	if (n >= 16)
-		len += putnbr_base_ulong(n / 16, base);
-	write(1, &base[n % 16], 1);
+	{
+		sub = putnbr_base_ulong(n / 16, base);
+		if (sub < 0)
+			return (-1);
+		len += sub;
+	}
+	if (write(1, &base[n % 16], 1) < 0)
+		return (-1);
 	return (len + 1);
 }
 
 int	print_pointer(void *ptr)
 {
 	uintptr_t	addr;
+	int			len;
 
 	if (ptr == NULL)
 		return (write(1, "(nil)", 5));
 	addr = (uintptr_t)ptr;
-	write(1, "0x", 2);
-	return (2 + putnbr_base_ulong(addr, "0123456789abcdef"));
+	if (write(1, "0x", 2) < 0)
+		return (-1);
+	len = putnbr_base_ulong(addr, "0123456789abcdef");
+	if (len < 0)
+		return (-1);
+	return (len + 2);
 }
 
 // int	main(void)
