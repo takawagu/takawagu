@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 09:41:40 by takawagu          #+#    #+#             */
-/*   Updated: 2025/05/21 07:02:06 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/05/21 11:20:46 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,25 +36,27 @@ int	dispatch_format(char specifier, va_list args)
 int	handle_format(const char *format, va_list args, int *index)
 {
 	int		tmp;
-	ssize_t	ret_a;
-	ssize_t	ret_b;
+	ssize_t	write_ret_percent;
+	ssize_t	write_ret_specifier;
 
-	if (format[*index] == '%' && format[*index + 1])
+	if (format[*index] == '%')
 	{
+		if (format[*index + 1] == '\0')
+			return (-1);
 		tmp = dispatch_format(format[*index + 1], args);
 		if (tmp < 0)
 		{
-			ret_a = write(1, &format[*index], 1);
-			ret_b = write(1, &format[*index + 1], 1);
-			if (ret_a < 0 || ret_b < 0)
+			write_ret_percent = write(1, &format[*index], 1);
+			write_ret_specifier = write(1, &format[*index + 1], 1);
+			if (write_ret_percent < 0 || write_ret_specifier < 0)
 				return (-1);
-			tmp = (int)(ret_a + ret_b);
+			tmp = (int)(write_ret_percent + write_ret_specifier);
 		}
 		*index += 2;
 		return (tmp);
 	}
-	ret_a = write(1, &format[*index], 1);
-	if (ret_a < 0)
+	write_ret_percent = write(1, &format[*index], 1);
+	if (write_ret_percent < 0)
 		return (-1);
 	(*index)++;
 	return (1);

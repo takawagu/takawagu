@@ -6,13 +6,13 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 12:47:23 by takawagu          #+#    #+#             */
-/*   Updated: 2025/05/19 16:10:17 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/05/21 11:22:57 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	putnbr_base(unsigned int n, const char *base)
+static int	putnbr_base_hex(unsigned int n, const char *base)
 {
 	int	len;
 	int	sub;
@@ -20,7 +20,7 @@ static int	putnbr_base(unsigned int n, const char *base)
 	len = 0;
 	if (n >= 16)
 	{
-		sub = putnbr_base(n / 16, base);
+		sub = putnbr_base_hex(n / 16, base);
 		if (sub < 0)
 			return (-1);
 		len += sub;
@@ -30,7 +30,7 @@ static int	putnbr_base(unsigned int n, const char *base)
 	return (len + 1);
 }
 
-int	print_hex(unsigned int xn, int uppercase)
+int	print_hex(unsigned int hex_n, int uppercase)
 {
 	const char	*base;
 
@@ -38,7 +38,7 @@ int	print_hex(unsigned int xn, int uppercase)
 		base = "0123456789ABCDEF";
 	else
 		base = "0123456789abcdef";
-	return (putnbr_base(xn, base));
+	return (putnbr_base_hex(hex_n, base));
 }
 
 // #include <stdio.h>

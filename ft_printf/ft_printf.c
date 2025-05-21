@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 16:49:54 by takawagu          #+#    #+#             */
-/*   Updated: 2025/05/21 07:27:54 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/05/21 11:39:59 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 	int		i;
 	int		printed_len;
+	int		tmp;
 
 	i = 0;
 	printed_len = 0;
@@ -24,7 +25,15 @@ int	ft_printf(const char *format, ...)
 		return (-1);
 	va_start(args, format);
 	while (format[i])
-		printed_len += handle_format(format, args, &i);
+	{
+		tmp = handle_format(format, args, &i);
+		if (tmp < 0)
+		{
+			va_end(args);
+			return (-1);
+		}
+		printed_len += tmp;
+	}
 	va_end(args);
 	return (printed_len);
 }
@@ -47,16 +56,13 @@ int	ft_printf(const char *format, ...)
 // 	return (0);
 // }
 
-// #include "ft_printf.h"
-// #include <stdio.h> // printf
-// #include <unistd.h> // write
-
 // int	main(void)
 // {
 // 	int	ret_ft;
 // 	int	ret_std;
 
-// 	// テスト1: 文字列
+// // テスト1:
+// // 	文字列
 // 	ret_ft = ft_printf("ft_printf: [%s]\n", "Hello World");
 // 	ret_std = printf("printf:    [%s]\n", "Hello World");
 // 	printf("Return ft_printf: %d\n", ret_ft);
@@ -84,46 +90,24 @@ int	ft_printf(const char *format, ...)
 
 // int	main(void)
 // {
-// 	int	ret;
-// 	int	ret_std;
-// 	int	ret_ft;
+// 	ssize_t	ret;
 
-// 	close(1); // 標準出力を閉じる → fd 1 無効
-// 	ret = ft_printf("This should fail\n");
-// 	printf("ft_printf return: %d\n", ret); // ここは printf なので失敗する可能性あり
-// 	return (0);
-// 	// 不正なフォーマット指定子
-// 	const char *test_cases[] = {"Test 1: [%q]",  // 未定義フォーマット
-// 								"Test 2: [%~]",  // 特殊記号
-// 								"Test 3: [%1]",  // 数字
-// 								"Test 4: [%Z]",  // 未使用大文字
-// 								"Test 5: [%]",   // 単独の %
-// 								"Test 6: [%%x]", // 二重 %
-// 								NULL};
-// 	for (int i = 0; test_cases[i]; i++)
-// 	{
-// 		printf("=== %s ===\n", test_cases[i]);
-// 		ret_ft = ft_printf("ft_printf: %s => ", test_cases[i]);
-// 		ret_ft += ft_printf("%s", test_cases[i]);
-// 		ft_printf(" | return (= %d\n", ret_ft);
-// 		ret_std = printf("printf:    %s => ", test_cases[i]);
-// 		ret_std += printf("%s", test_cases[i]);
-// 		printf(" | return (= %d\n\n", ret_std);
-// 	}
+// 	close(1); // 標準出力を閉じる
+// 	ret = write(1, "Hello\n", 6);
+// 	// 標準エラー出力に結果を表示
+// 	dprintf(2, "write returned: %zd\n", ret);
+// 	perror("write");
 // 	return (0);
 // }
 
-#include <stdio.h>
-#include <unistd.h>
+// #include "ft_printf.h"
+// #include <stdio.h>
 
-int	main(void)
-{
-	ssize_t	ret;
+// int	main(void)
+// {
+// 	int	result;
 
-	close(1); // 標準出力を閉じる
-	ret = write(1, "Hello\n", 6);
-	// 標準エラー出力に結果を表示
-	dprintf(2, "write returned: %zd\n", ret);
-	perror("write");
-	return (0);
-}
+// 	result = ft_printf("テスト: %"); // ← 不完全な % を渡す
+// 	printf("\n戻り値: %d\n", result);
+// 	return (0);
+// }

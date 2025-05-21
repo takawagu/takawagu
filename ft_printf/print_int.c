@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 09:31:16 by takawagu          #+#    #+#             */
-/*   Updated: 2025/05/13 10:45:55 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/05/21 11:12:36 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	print_int(int n)
 
 	str = ft_itoa(n);
 	if (!str)
-		return (0);
+		return (-1);
 	len = print_str(str);
 	free(str);
 	return (len);

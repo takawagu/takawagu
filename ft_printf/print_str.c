@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 09:16:04 by takawagu          #+#    #+#             */
-/*   Updated: 2025/05/15 10:50:53 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/05/21 11:11:41 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,15 @@
 int	print_str(const char *s)
 {
 	size_t	len;
+	ssize_t	ret;
 
 	if (!s)
 		s = "(null)";
 	len = ft_strlen(s);
-	write(1, s, len);
-	return (len);
+	ret = write(1, s, len);
+	if (ret < 0)
+		return (-1);
+	return ((int)ret);
 }
 
 // #include <stdio.h>

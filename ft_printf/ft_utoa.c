@@ -6,20 +6,20 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 11:24:58 by takawagu          #+#    #+#             */
-/*   Updated: 2025/05/21 07:32:33 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/05/21 11:14:00 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static unsigned int	num_len_unsigned_int(unsigned int un)
+static unsigned int	num_len_unsigned_int(unsigned int u_num)
 {
 	unsigned int	len;
 
 	len = 1;
-	while (un >= 10)
+	while (u_num >= 10)
 	{
-		un /= 10;
+		u_num /= 10;
 		len++;
 	}
 	return (len);
