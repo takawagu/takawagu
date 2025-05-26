@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 11:19:00 by takawagu          #+#    #+#             */
-/*   Updated: 2025/05/13 10:45:42 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/05/24 13:50:00 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	print_unsigned(unsigned int un)
 
 	str = ft_utoa(un);
 	if (!str)
-		return (0);
+		return (-1);
 	len = print_str(str);
 	free(str);
 	return (len);

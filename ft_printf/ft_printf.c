@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 16:49:54 by takawagu          #+#    #+#             */
-/*   Updated: 2025/05/21 11:39:59 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/05/24 16:16:01 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,31 +38,13 @@ int	ft_printf(const char *format, ...)
 	return (printed_len);
 }
 
-// #include "string.h"
-// #include <limits.h>
-
-// int	main(void)
-// {
-// 	int	n;
-// 	int	un;
-
-// 	n = INT_MAX;
-// 	un = UINT_MAX;
-// 	ft_printf("%c\n%s\n%d\n%i\naiueo\n%u\n%x\n%X\n%p\n%%\n", 'c', "string", n,
-// 		n, un, un, un, &un);
-// 	write(1, "\n", 1);
-// 	printf("%c\n%s\n%d\n%i\naiueo\n%u\n%x\n%X\n%p\n%%\n", 'c', "string", n, n,
-// 		un, un, un, &un);
-// 	return (0);
-// }
-
 // int	main(void)
 // {
 // 	int	ret_ft;
 // 	int	ret_std;
 
-// // テスト1:
-// // 	文字列
+// 	// テスト1:
+// 	// 	文字列
 // 	ret_ft = ft_printf("ft_printf: [%s]\n", "Hello World");
 // 	ret_std = printf("printf:    [%s]\n", "Hello World");
 // 	printf("Return ft_printf: %d\n", ret_ft);
@@ -107,7 +89,32 @@ int	ft_printf(const char *format, ...)
 // {
 // 	int	result;
 
-// 	result = ft_printf("テスト: %"); // ← 不完全な % を渡す
+// 	result = ft_printf("テスト:さｂじゃ%"); // ← 不完全な % を渡す
 // 	printf("\n戻り値: %d\n", result);
+// 	return (0);
+// }
+
+// int	main(void)
+// {
+// 	char			*p;
+// 	int				d;
+// 	unsigned int	u_num;
+// 	char			a;
+// 	char			*s;
+// 	int				ret1;
+// 	int				ret2;
+
+// 	d = 0;
+// 	u_num = UINT_MAX;
+// 	p = &a;
+// 	s = "%k";
+// 	ret1 = printf("%X,%x,%s", u_num, u_num, s);
+// 	printf("\n");
+// 	ret2 = ft_printf("%X,%x,%s", u_num, u_num, s);
+// 	printf("\n");
+// 	printf("%d", ret1);
+// 	printf("\n");
+// 	printf("%d", ret2);
+// 	printf("\n");
 // 	return (0);
 // }
