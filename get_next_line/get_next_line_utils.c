@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 13:37:47 by takawagu          #+#    #+#             */
-/*   Updated: 2025/05/19 13:43:40 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/06/04 11:22:38 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*ft_strdup(const char *s)
 	char	*copy;
 
 	len = ft_strlen(s);
-	copy = ft_calloc(len + 1, sizeof(char));
+	copy = malloc(len + 1);
 	if (copy == NULL)
 		return ((NULL));
 	i = 0;
@@ -57,6 +57,7 @@ char	*ft_strdup(const char *s)
 		copy[i] = s[i];
 		i++;
 	}
+	copy[i] = '\0';
 	return (copy);
 }
 
@@ -79,12 +80,21 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
-ssize_t	safe_write(int fd, const void *buf, size_t count)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	ssize_t	ret;
+	unsigned char		*d;
+	const unsigned char	*s;
+	size_t				i;
 
-	ret = write(fd, buf, count);
-	if (ret < 0)
-		return (-1);
-	return (ret);
+	if (!dst && !src && n == 0)
+		return (NULL);
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	i = 0;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dst);
 }
