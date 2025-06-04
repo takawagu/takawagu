@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 13:37:47 by takawagu          #+#    #+#             */
-/*   Updated: 2025/06/04 11:22:38 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/06/04 19:11:37 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,10 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	const unsigned char	*s;
 	size_t				i;
 
-	if (!dst && !src && n == 0)
-		return (NULL);
+	if ((dst == NULL && src == NULL) || n == 0)
+		return (dst);
 	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
+	s = (const unsigned char *)src;
 	i = 0;
 	while (i < n)
 	{
