@@ -26,3 +26,29 @@ If at least one integer is null, LCM is equal to 0.
 Your function must be prototyped as follows:
 
   unsigned int    lcm(unsigned int a, unsigned int b);
+
+
+課題名: lcm
+想定されるファイル: lcm.c
+使用できる関数:
+--------------------------------------------------------------------------------
+
+2つのunsigned intを引数として受け取り、それらの引数の最小公倍数を返す関数を作成してください。
+
+2つの非ゼロ整数の最小公倍数（LCM）は、両方の整数で割り切れる最小の正の整数です。
+
+最小公倍数は2つの方法で計算できます。
+
+- 0以外の公倍数になるまで、それぞれの整数のすべての倍数を計算する方法
+
+- これらの2つの整数の最大公約数（HCF）を使用して、次のように計算する方法
+
+LCM(x, y) = | x * y | / HCF(x, y)
+
+| x * y |は「x と y の積の絶対値」を意味します。
+
+少なくとも 1 つの整数が null の場合、LCM は 0 になります。
+
+関数は次のようにプロトタイプ宣言する必要があります。
+
+unsigned int lcm(unsigned int a, unsigned int b);

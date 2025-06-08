@@ -23,3 +23,29 @@ $
 $> ./last_word "  lorem,ipsum  " | cat -e
 lorem,ipsum$
 $>
+
+
+課題名: last_word
+想定されるファイル: last_word.c
+使用できる関数: write
+--------------------------------------------------------------------------------
+
+文字列を受け取り、その最後の単語に続けて\nを表示するプログラムを作成してください。
+
+単語とは、スペース/タブ、または文字列の先頭/末尾で区切られた文字列のセクションです。
+
+パラメータの数が1でない場合、または単語がない場合は、改行を表示します。
+
+例:
+
+$> ./last_word "FOR PONY" | cat -e
+PONY$
+$> ./last_word "this ... is sparta, then again, maybe not" | cat -e
+not$
+$> ./last_word " " | cat -e
+$
+$> ./last_word "a" "b" | cat -e
+$
+$> ./last_word " lorem,ipsum " | cat -e
+lorem,ipsum$
+$>

@@ -25,3 +25,29 @@ $>
 $>./union "rien" | cat -e
 $
 $>
+
+課題名: union
+想定ファイル: union.c
+使用できる関数: write
+--------------------------------------------------------------------------------
+
+2つの文字列を受け取り、どちらかの文字列に含まれる文字を、double なしで表示するプログラムを作成してください。
+
+表示はコマンドラインに文字が出現する順序で行われ、最後に \n が付きます。
+
+引数の数が2でない場合、プログラムは \n を表示します。
+
+例:
+
+$>./union zpadinton "paqefwtdjetyiytjneytjoeyjnejeyj" | cat -e
+zpadintoqefwjy$
+$>./union ddf6vewg64f gtwthgdwthdwfteewhrtag6h4ffdhsd | cat -e
+df6vewg4thras$
+$>./union "rien" "cette phrase ne cache rien" |猫絵
+リエンクトフェーズ$
+$>./ユニオン |猫絵
+$
+$>
+$>./union "リアン" |猫絵
+$
+$>

@@ -8,3 +8,15 @@ Write a function that returns the length of a string.
 Your function must be declared as follows:
 
 int	ft_strlen(char *str);
+
+
+代入名: ft_strlen
+想定ファイル: ft_strlen.c
+使用可能な関数:
+--------------------------------------------------------------------------------
+
+文字列の長さを返す関数を記述してください。
+
+関数は以下のように宣言する必要があります。
+
+int ft_strlen(char *str);

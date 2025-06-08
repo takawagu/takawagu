@@ -12,3 +12,16 @@ lines, or by the start/end of the string.
 Your function must be declared as follows:
 
 char    **ft_split(char *str);
+
+代入名: ft_split
+想定ファイル: ft_split.c
+使用可能な関数: malloc
+--------------------------------------------------------------------------------
+
+文字列を受け取り、それを単語に分割し、それらをNULL終端された文字列配列として返す関数を作成してください。
+
+「単語」とは、スペース/タブ/改行、または文字列の先頭/末尾で区切られた文字列の一部と定義されます。
+
+関数は次のように宣言する必要があります。
+
+char **ft_split(char *str);

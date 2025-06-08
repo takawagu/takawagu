@@ -25,3 +25,28 @@ $
 $> ./first_word "  lorem,ipsum  " | cat -e
 lorem,ipsum$
 $>
+
+課題名: first_word
+想定されるファイル: first_word.c
+使用できる関数: write
+--------------------------------------------------------------------------------
+
+文字列を受け取り、最初の単語とそれに続く改行を表示するプログラムを作成してください。
+
+単語とは、スペース/タブ、または文字列の先頭/末尾で区切られた文字列のセクションです。
+
+パラメータの数が1でない場合、または単語がない場合は、単に改行を表示します。
+
+例:
+
+$> ./first_word "FOR PONY" | cat -e
+FOR$
+$> ./first_word "this ... is sparta, then again, maybe not" | cat -e
+this$
+$> ./first_word " " | cat -e
+$
+$> ./first_word "a" "b" | cat -e
+$
+$> ./first_word " lorem,ipsum " | cat -e
+lorem,ipsum$
+$>

@@ -8,3 +8,14 @@ Reproduce the behavior of the function strcmp (man strcmp).
 Your function must be declared as follows:
 
 int    ft_strcmp(char *s1, char *s2);
+
+代入名: ft_strcmp
+想定されるファイル: ft_strcmp.c
+使用できる関数:
+--------------------------------------------------------------------------------
+
+関数 strcmp の動作を再現してください (man strcmp)。
+
+関数は以下のように宣言する必要があります:
+
+int ft_strcmp(char *s1, char *s2);

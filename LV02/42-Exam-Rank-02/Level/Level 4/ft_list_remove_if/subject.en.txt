@@ -21,3 +21,27 @@ typedef struct      s_list
     void            *data;
 }                   t_list;
 $>
+
+
+代入名: ft_list_remove_if
+想定ファイル: ft_list_remove_if.c
+使用可能な関数: free
+--------------------------------------------------------------------------------
+
+渡されたリストから、参照データと「等しい」データを持つ要素を削除する ft_list_remove_if という関数を記述してください。
+
+この関数は以下のように宣言されます:
+
+void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)());
+
+cmp は2つの void* を受け取り、両方のパラメータが等しい場合は 0 を返します。
+
+以下のコードを含む ft_list.h ファイルを使用する必要があります:
+
+$>cat ft_list.h
+typedef struct s_list
+{
+struct s_list *next;
+void *data;
+} t_list;
+$>

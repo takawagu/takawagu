@@ -20,3 +20,27 @@ $>./ulstr "3:21 Ba  tOut  moUn ki Ka di KE m'en Ka fe fot" | cat -e
 3:21 bA  ToUT  MOuN KI kA DI ke M'EN kA FE FOT$
 $>./ulstr | cat -e
 $
+
+課題名: ulstr
+想定ファイル: ulstr.c
+使用できる関数: write
+--------------------------------------------------------------------------------
+
+文字列を受け取り、その中のすべての文字の大文字と小文字を反転するプログラムを作成してください。
+
+その他の文字は変更されません。
+
+結果の後に '\n' を表示する必要があります。
+
+引数の数が1でない場合、プログラムは '\n' を表示します。
+
+例:
+
+$>./ulstr "L'eSPrit nE peUt plUs pRogResSer s'Il staGne et sI pERsIsTent VAnIte et auto-justification." |猫絵
+L'Esprit Ne PeuT Plus プログレッサー SIL STAGNE ET S Persistent VANITE ET AUTO-JUSTIFICATION.$
+$>./ulstr "監視官は、マンケの偵察解除に署名するまで秘密基地にいます。" |猫絵
+主人は秘密保持者として偵察に署名します。 $
+$>./ulstr "3:21 Ba tOut moUn ki Ka di KE m'en Ka fe fot" |猫絵
+3:21 BA TOUN KI KADI KE M'EN KAFE FOT$
+$>./ulstr |猫絵
+$

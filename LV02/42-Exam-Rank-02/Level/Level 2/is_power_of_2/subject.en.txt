@@ -10,3 +10,17 @@ This function returns 1 if the given number is a power of 2, otherwise it return
 Your function must be declared as follows:
 
 int	    is_power_of_2(unsigned int n);
+
+
+課題名: is_power_of_2
+想定ファイル: is_power_of_2.c
+使用できる関数: なし
+--------------------------------------------------------------------------------
+
+与えられた数が2の累乗かどうかを判定する関数を作成してください。
+
+この関数は、与えられた数が2の累乗であれば1を返し、そうでなければ0を返します。
+
+関数は次のように宣言する必要があります。
+
+int is_power_of_2(unsigned int n);

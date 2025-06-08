@@ -8,3 +8,14 @@ Reproduce the behavior of the function strcpy (man strcpy).
 Your function must be declared as follows:
 
 char    *ft_strcpy(char *s1, char *s2);
+
+代入名: ft_strcpy
+想定されるファイル: ft_strcpy.c
+使用できる関数:
+--------------------------------------------------------------------------------
+
+関数 strcpy の動作を再現してください (man strcpy)。
+
+関数は以下のように宣言する必要があります:
+
+char *ft_strcpy(char *s1, char *s2);

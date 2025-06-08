@@ -10,3 +10,17 @@ It must return its parameter.
 Your function must be declared as follows:
 
 char    *ft_strrev(char *str);
+
+
+代入名: ft_strrev
+想定ファイル: ft_strrev.c
+使用できる関数:
+--------------------------------------------------------------------------------
+
+文字列を反転する（インプレース）関数を記述してください。
+
+引数を返さなければなりません。
+
+関数は以下のように宣言する必要があります。
+
+char *ft_strrev(char *str);

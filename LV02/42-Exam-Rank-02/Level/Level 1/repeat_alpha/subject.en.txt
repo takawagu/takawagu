@@ -27,3 +27,32 @@ $>
 $>./repeat_alpha "" | cat -e
 $
 $>
+
+
+課題名: repeat_alpha
+想定ファイル: repeat_alpha.c
+許可される関数: write
+--------------------------------------------------------------------------------
+
+文字列を受け取り、各アルファベット文字をアルファベットのインデックス回数だけ繰り返し、最後に改行文字を表示する repeat_alpha というプログラムを作成してください。
+
+'a' は 'a'、'b' は 'bb'、'e' は 'eeeee' などになります。
+
+大文字と小文字は変更されません。
+
+引数の数が1でない場合は、改行文字のみを表示します。
+
+例:
+
+$>./repeat_alpha "abc"
+abbccc
+$>./repeat_alpha "Alex." | cat -e
+Allllllllllleeeeexxxxxxxxxxxxxxxxxxxxxxxx.$
+$>./repeat_alpha 'abacadaba 42!' | cat -e
+abbacccaddddabba 42!$
+$>./repeat_alpha | cat -e
+$
+$>
+$>./repeat_alpha "" | cat -e
+$
+$>

@@ -9,3 +9,15 @@ are passed as parameters.
 Your function must be declared as follows:
 
 void	ft_swap(int *a, int *b);
+
+
+代入名: ft_swap
+想定ファイル: ft_swap.c
+使用可能な関数:
+--------------------------------------------------------------------------------
+
+2つの整数のアドレスをパラメータとして渡し、その内容を交換する関数を作成してください。
+
+関数は以下のように宣言する必要があります。
+
+void ft_swap(int *a, int *b);

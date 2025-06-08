@@ -9,3 +9,15 @@ Reproduce exactly the behavior of the function strcspn
 The function should be prototyped as follows:
 
 size_t	ft_strcspn(const char *s, const char *reject);
+
+代入名: ft_strcspn
+想定ファイル: ft_strcspn.c
+使用可能な関数: なし
+------------------------------------------------------------------
+
+関数 strcspn の動作を正確に再現してください。
+(man strcspn)
+
+関数のプロトタイプ宣言は以下のように記述してください。
+
+size_t ft_strcspn(const char *s, const char *reject);

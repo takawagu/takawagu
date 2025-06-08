@@ -9,3 +9,16 @@ Reproduce exactly the behavior of the function strpbrk
 The function should be prototyped as follows:
 
 char	*ft_strpbrk(const char *s1, const char *s2);
+
+
+代入名: ft_strpbrk
+想定ファイル: ft_strpbrk.c
+使用可能な関数: なし
+------------------------------------------------------------------
+
+関数 strpbrk の動作を正確に再現してください。
+(man strpbrk)
+
+関数のプロトタイプ宣言は以下のように記述してください。
+
+char *ft_strpbrk(const char *s1, const char *s2);

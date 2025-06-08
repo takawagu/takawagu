@@ -8,3 +8,15 @@ Reproduce the behavior of the function strdup (man strdup).
 Your function must be declared as follows:
 
 char    *ft_strdup(char *src);
+
+
+代入名: ft_strdup
+想定されるファイル: ft_strdup.c
+許可される関数: malloc
+--------------------------------------------------------------------------------
+
+関数 strdup の動作を再現してください (man strdup)。
+
+関数は以下のように宣言する必要があります:
+
+char *ft_strdup(char *src);

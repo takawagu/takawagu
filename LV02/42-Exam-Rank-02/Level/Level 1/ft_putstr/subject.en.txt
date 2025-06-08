@@ -11,3 +11,16 @@ character.
 Your function must be declared as follows:
 
 void	ft_putstr(char *str);
+
+代入名: ft_putstr
+想定ファイル: ft_putstr.c
+使用できる関数: write
+--------------------------------------------------------------------------------
+
+標準出力に文字列を表示する関数を作成してください。
+
+関数に渡されるポインタには、文字列の先頭文字のアドレスが格納されます。
+
+関数は以下のように宣言する必要があります。
+
+void ft_putstr(char *str);

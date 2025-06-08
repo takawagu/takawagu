@@ -25,3 +25,28 @@ Nb slihv rh Znzarmt.$
 $>./alpha_mirror | cat -e
 $
 $>
+
+
+課題名: alpha_mirror
+想定されるファイル: alpha_mirror.c
+許可される関数: write
+--------------------------------------------------------------------------------
+
+文字列を受け取り、各アルファベット文字を逆順に置き換え、最後に改行文字をつけて表示する alpha_mirror というプログラムを作成してください。
+
+'a' は 'z' に、'Z' は 'A' に、'd' は 'w' に、'M' は 'N' に、
+
+以下同様です。
+
+大文字と小文字は変換されません。
+
+引数の数が1でない場合は、改行文字のみを表示します。
+
+例:
+
+$>./alpha_mirror "abc"
+zyx
+$>./alpha_mirror "My horse is Amazing." | cat -e
+Nb slihv rh Znzarmt.$
+$>./alpha_mirror | cat -e
+$

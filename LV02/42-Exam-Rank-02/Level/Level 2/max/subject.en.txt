@@ -13,3 +13,19 @@ the array.
 The function returns the largest number found in the array.
 
 If the array is empty, the function returns 0.
+
+
+課題名: max
+想定ファイル: max.c
+使用できる関数:
+--------------------------------------------------------------------------------
+
+次の関数を記述してください:
+
+int max(int* tab, unsigned int len);
+
+最初の引数はint型の配列、2番目の引数は配列の要素数です。
+
+この関数は、配列内で見つかった最大の数値を返します。
+
+配列が空の場合、この関数は0を返します。

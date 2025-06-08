@@ -13,3 +13,19 @@ members, in ascending order.
 Doubles must be preserved.
 
 Input is always coherent.
+
+
+代入名: sort_int_tab
+想定されるファイル: sort_int_tab.c
+使用できる関数:
+--------------------------------------------------------------------------------
+
+次の関数を記述してください:
+
+void sort_int_tab(int *tab, unsigned int size);
+
+この関数は、ちょうど 'size' 個の要素を含む 'tab' int 配列を昇順に（インプレースで）ソートする必要があります。
+
+double 型は保持する必要があります。
+
+入力は常に一貫性があります。

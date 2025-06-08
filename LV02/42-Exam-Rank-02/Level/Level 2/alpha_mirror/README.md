@@ -29,3 +29,18 @@ $>./alpha_mirror | cat -e
 $
 $>
 ```
+Assignment name  : alpha_mirror
+Expected files   : alpha_mirror.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Write a program called alpha_mirror that takes a string and displays this string
+after replacing each alphabetical character by the opposite alphabetical
+character, followed by a newline.
+
+
+
+
+
+
+

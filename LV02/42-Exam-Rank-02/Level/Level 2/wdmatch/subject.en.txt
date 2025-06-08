@@ -24,3 +24,28 @@ $>./wdmatch "error" rrerrrfiiljdfxjyuifrrvcoojh | cat -e
 $
 $>./wdmatch | cat -e
 $
+
+
+課題名: wdmatch
+想定ファイル: wdmatch.c
+使用できる関数: write
+--------------------------------------------------------------------------------
+
+2つの文字列を受け取り、2つ目の文字列の文字を最初の文字列に書き込むことが可能かどうかを、2つ目の文字列におけるこれらの文字の出現順序を考慮しながら確認するプログラムを作成してください。
+
+書き込み可能な場合、プログラムは文字列の後に\nを表示し、そうでない場合は\nのみを表示します。
+
+引数の数が2でない場合、プログラムは\nを表示します。
+
+例:
+
+$>./wdmatch "faya" "fgvvfdxcacpolhyghbreda" | cat -e
+faya$
+$>./wdmatch "faya" "fgvvfdxcacpolhyghbred" |猫絵
+$
+$>./wdmatch "quarante deux" "qfqfsudf arzgsayns tsregfdgs sjytdekuoixq " |猫絵
+Quarante deux$
+$>./wdmatch "エラー" rrrrrfiiljdfxjyuifrrvcoojh |猫絵
+$
+$>./wdmatch |猫絵
+$

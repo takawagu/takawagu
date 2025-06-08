@@ -22,3 +22,27 @@ typedef struct    s_list
     struct s_list *next;
     void          *data;
 }                 t_list;
+
+
+代入名: ft_list_foreach
+想定ファイル: ft_list_foreach.c、ft_list.h
+使用可能な関数:
+--------------------------------------------------------------------------------
+
+リストと関数ポインタを受け取り、リストの各要素にこの関数を適用する関数を記述してください。
+
+以下のように宣言する必要があります:
+
+void ft_list_foreach(t_list *begin_list, void (*f)(void *));
+
+f が指す関数は以下のように使用されます:
+
+(*f)(list_ptr->data);
+
+以下の構造体を使用し、ft_list.h というファイルとして提出する必要があります:
+
+typedef struct s_list
+{
+struct s_list *next;
+void *data;
+} t_list;

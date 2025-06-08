@@ -11,3 +11,16 @@ Your function must be declared as follows:
 void	print_bits(unsigned char octet);
 
 Example, if you pass 2 to print_bits, it will print "00000010"
+
+代入名: print_bits
+想定ファイル: print_bits.c
+許可される関数: write
+--------------------------------------------------------------------------------
+
+1バイトを受け取り、最後に改行を付けずにバイナリで出力する関数を作成してください。
+
+関数は以下のように宣言する必要があります。
+
+void print_bits(unsigned char octet);
+
+例えば、print_bitsに2を渡すと、「00000010」と出力されます。

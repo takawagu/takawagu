@@ -11,3 +11,16 @@ It works much like the standard atoi(const char *str) function, see the man.
 Your function must be declared as follows:
 
 int	ft_atoi(const char *str);
+
+代入名: ft_atoi
+想定ファイル: ft_atoi.c
+使用可能な関数: なし
+--------------------------------------------------------------------------------
+
+文字列引数 str を整数 (int 型) に変換し、それを返す関数を作成してください。
+
+この関数の動作は標準の atoi(const char *str) 関数とほぼ同じです。マニュアルを参照してください。
+
+関数は以下のように宣言する必要があります。
+
+int ft_atoi(const char *str);

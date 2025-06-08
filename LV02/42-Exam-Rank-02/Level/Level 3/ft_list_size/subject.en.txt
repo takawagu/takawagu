@@ -18,3 +18,23 @@ typedef struct    s_list
     struct s_list *next;
     void          *data;
 }                 t_list;
+
+
+代入名: ft_list_size
+想定ファイル: ft_list_size.c、ft_list.h
+使用可能な関数:
+--------------------------------------------------------------------------------
+
+渡されたリンクリストの要素数を返す関数を作成してください。
+
+以下のように宣言してください。
+
+int ft_list_size(t_list *begin_list);
+
+以下の構造体を使用し、ft_list.h というファイルとして提出してください。
+
+typedef struct s_list
+{
+struct s_list *next;
+void *data;
+} t_list;

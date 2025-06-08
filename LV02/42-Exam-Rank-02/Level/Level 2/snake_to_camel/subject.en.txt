@@ -19,3 +19,22 @@ $>./camel_to_snake "hello_world" | cat -e
 helloWorld$
 $>./camel_to_snake | cat -e
 $
+
+課題名: snake_to_camel
+想定ファイル: snake_to_camel.c
+使用できる関数: malloc、free、realloc、write
+--------------------------------------------------------------------------------
+
+snake_case形式の文字列を1つ受け取り、それをlowerCamelCase形式の文字列に変換するプログラムを作成してください。
+
+snake_case形式の文字列とは、各単語が小文字で、アンダースコア「_」で区切られた文字列です。
+
+lowerCamelCase形式の文字列とは、各単語が最初の単語を除いて大文字で始まる文字列です。
+
+例:
+$>./camel_to_snake "here_is_a_snake_case_word"
+hereIsASnakeCaseWord
+$>./camel_to_snake "hello_world" | cat -e
+helloWorld$
+$>./camel_to_snake | cat -e
+$
