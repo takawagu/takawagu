@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inter.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gicomlan <gicomlan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 14:36:37 by gcomlan           #+#    #+#             */
-/*   Updated: 2024/07/24 08:45:27 by gicomlan         ###   ########.fr       */
+/*   Updated: 2025/06/08 15:19:39 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	if (argc == 0x3)
 		ft_inter(argv[0x1], argv[0x2]);
 	write(STDOUT_FILENO, "\n", sizeof(char));
-	return (EXIT_SUCCESS);
+	return (EXIT_SUCCESS);	
 }
 
 static void	ft_inter(char *str_1, char *str_2)
