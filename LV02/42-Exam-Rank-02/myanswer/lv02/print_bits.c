@@ -5,16 +5,20 @@ static void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
+#include <unistd.h>
+
 void	print_bits(unsigned char octet)
 {
-	int				index;
-	unsigned char	bit;
-
-	index = 8;
-	while (index--)
+	int	i;
+	i = 7;
+	
+	while (i >= 0)
 	{
-		bit = (((octet >> index) & 1) + '0');
-		ft_putchar(bit);
+		if ((octet >> i) & 1)
+			write(1, "1", 1);
+		else
+			write(1, "0", 1);
+		i--;
 	}
 }
 
