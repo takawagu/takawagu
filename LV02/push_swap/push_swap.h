@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 14:55:55 by takawagu          #+#    #+#             */
-/*   Updated: 2025/06/18 15:56:25 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/06/20 14:23:14 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,16 @@ void	sa(t_stack *s);
 void	sb(t_stack *s);
 void	ss(t_stack *s);
 
+void	pa(t_stack *s);
+void	pb(t_stack *s);
 
+void	ra(t_stack *s);
+void	rb(t_stack *s);
+void	rr(t_stack *s);
+
+void	rra(t_stack *s);
+void	rrb(t_stack *s);
+void	rrr(t_stack *s);
 
 
 #endif
