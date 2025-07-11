@@ -6,29 +6,34 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 18:07:17 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/09 19:04:38 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/07/10 16:44:23 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+int	game_loop(t_game *game)
+{
+	update_enemy(game);
+	draw_map(game);
+	return (0);
+}
+
 int	main(void)
 {
 	t_game	game;
 
-	// MiniLibX 初期化
 	game.mlx = mlx_init();
-	game.win = mlx_new_window(game.mlx, 640, 480, "so_long");
-	// マップ読み込み
 	game.map = read_map("maps/testmap.ber");
-	// 画像をロード
+	init_player(&game);
+	init_enemy(&game);
 	load_images(&game);
-	// 描画
+	game.win = mlx_new_window(game.mlx, TILE_SIZE * map_width(game.map),
+			TILE_SIZE * map_height(game.map), "so_long");
 	draw_map(&game);
-	// フック登録 (構造体ポインタをそのまま渡す)
+	mlx_loop_hook(game.mlx, game_loop, &game);
 	mlx_key_hook(game.win, handle_key, &game);
 	mlx_hook(game.win, 17, 0, close_window, &game);
-	// イベントループ
 	mlx_loop(game.mlx);
 	return (0);
 }

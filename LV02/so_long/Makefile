@@ -6,7 +6,7 @@
 #    By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/09 14:52:32 by takawagu          #+#    #+#              #
-#    Updated: 2025/07/09 18:39:56 by takawagu         ###   ########.fr        #
+#    Updated: 2025/07/10 16:30:50 by takawagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,9 @@ SRCS = \
 	main.c \
 	hooks.c \
 	map.c \
-	render.c
+	render.c \
+	player.c \
+	enemy.c \
 
 OBJS = $(SRCS:.c=.o)
 
