@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 18:07:17 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/16 19:43:23 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/07/22 14:53:16 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ void	run_game_loop(t_game *game)
 	mlx_loop(game->mlx);
 	exit_game(game);
 }
-
-#include "so_long.h"
 
 int	main(int argc, char **argv)
 {

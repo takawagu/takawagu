@@ -23,7 +23,8 @@ SRCS_MANDATORY = \
 	player.c \
 	exit_game.c \
 	check_map.c \
-	check_map_utils.c
+	check_map_utils.c \
+	load_images.c \
 
 SRCS_BONUS = \
 	enemy_logic_bonus.c \
@@ -36,11 +37,11 @@ SRCS_BONUS = \
 	player.c \
 	exit_game.c \
 	check_map.c \
-	check_map_utils.c
+	check_map_utils.c \
+	load_images.c \
 
 ifeq ($(MODE),BONUS)
     SRCS = $(SRCS_BONUS)
-    CFLAGS += -DBONUS
 else
     SRCS = $(SRCS_MANDATORY)
 endif
