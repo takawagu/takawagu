@@ -6,7 +6,7 @@
 #    By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/25 10:06:26 by takawagu          #+#    #+#              #
-#    Updated: 2025/07/09 15:15:49 by takawagu         ###   ########.fr        #
+#    Updated: 2025/07/16 16:32:18 by takawagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,10 +52,7 @@ SRCS = \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
-	ft_putnbr_fd.c
-
-
-SRCS += \
+	ft_putnbr_fd.c \
 	ft_printf/ft_printf.c \
 	ft_printf/ft_printf_utils.c \
 	ft_printf/ft_utoa.c \
@@ -64,13 +61,9 @@ SRCS += \
 	ft_printf/print_int.c \
 	ft_printf/print_unsigned.c \
 	ft_printf/print_hex.c \
-	ft_printf/print_pointer.c
-
-
-SRCS += \
+	ft_printf/print_pointer.c \
 	get_next_line/get_next_line.c \
 	get_next_line/get_next_line_utils.c
-
 
 BONUS_SRCS = \
 	ft_lstnew_bonus.c \
@@ -85,41 +78,46 @@ BONUS_SRCS = \
 	get_next_line/get_next_line_bonus.c \
 	get_next_line/get_next_line_utils_bonus.c
 
-
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
-ifdef BONUS
-ALL_OBJS = $(OBJS) $(BONUS_OBJS)
-else
 ALL_OBJS = $(OBJS)
-endif
 
 
 all: $(NAME)
 
-
 $(NAME): $(ALL_OBJS)
 	$(AR) $(NAME) $(ALL_OBJS)
 
-
 bonus:
-	$(MAKE) BONUS=1
-
+	@echo "Adding bonus files..."
+	$(MAKE) ALL_OBJS="$(OBJS) $(BONUS_OBJS)" all
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCDIR) -c $< -o $@
 
-
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	@if ls *.o >/dev/null 2>&1; then \
+		echo "Cleaning object files..."; \
+		rm -f $(OBJS) $(BONUS_OBJS); \
+	else \
+		echo "No object files to remove."; \
+	fi
 
 fclean: clean
-	rm -f $(NAME)
+	@if [ -f $(NAME) ]; then \
+		echo "Removing $(NAME)..."; \
+		rm -f $(NAME); \
+	else \
+		echo "$(NAME) not found. Nothing to remove."; \
+	fi
+
 
 re: fclean all
 
 .PHONY: all clean fclean re bonus
+
+
 
 
 

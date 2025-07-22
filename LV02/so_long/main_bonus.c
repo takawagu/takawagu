@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 18:07:17 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/16 19:43:23 by takawagu         ###   ########.fr       */
+/*   Created: 2025/07/16 17:36:53 by takawagu          #+#    #+#             */
+/*   Updated: 2025/07/16 18:56:07 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	game_loop(t_game *game)
+int	game_loop_bonus(t_game *game)
 {
+	update_enemy(game);
 	draw_map(game);
 	return (0);
 }
@@ -39,17 +40,15 @@ void	check_map_file_name(const char *filename)
 	}
 }
 
-void	run_game_loop(t_game *game)
+static void	run_game_loop(t_game *game)
 {
 	draw_map(game);
-	mlx_loop_hook(game->mlx, game_loop, game);
+	mlx_loop_hook(game->mlx, game_loop_bonus, game);
 	mlx_key_hook(game->win, handle_key, game);
 	mlx_hook(game->win, 17, 0, close_window, game);
 	mlx_loop(game->mlx);
 	exit_game(game);
 }
-
-#include "so_long.h"
 
 int	main(int argc, char **argv)
 {
@@ -64,16 +63,15 @@ int	main(int argc, char **argv)
 	game.mlx = mlx_init();
 	if (!game.mlx)
 		exit_error(NULL, "mlx_init failed.");
-	game.map_info.map = read_map(argv[1]);
-	if (!game.map_info.map)
+	game.map = read_map(argv[1]);
+	if (!game.map)
 		exit_error(&game, "Failed to load map.");
-	validate_map(argv[1], game.map_info.map);
+	validate_map(argv[1], game.map);
 	init_player(&game);
-	init_buffer_image(&game);
+	init_enemy(&game);
 	load_images(&game);
-	game.win = mlx_new_window(game.mlx, TILE_SIZE
-			* map_width(game.map_info.map), TILE_SIZE
-			* map_height(game.map_info.map), "so_long");
+	game.win = mlx_new_window(game.mlx, TILE_SIZE * map_width(game.map),
+			TILE_SIZE * map_height(game.map), "so_long");
 	if (!game.win)
 		exit_error(&game, "Failed to create window.");
 	run_game_loop(&game);

@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 18:05:39 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/10 15:25:46 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/07/11 14:57:51 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	handle_key(int keycode, t_game *game)
 
 int	close_window(t_game *game)
 {
-	mlx_destroy_window(game->mlx, game->win);
-	exit(0);
+	exit_game(game);
 	return (0);
 }
