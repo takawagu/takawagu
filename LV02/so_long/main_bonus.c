@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 17:36:53 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/16 18:56:07 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/07/22 14:45:07 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	check_map_file_name(const char *filename)
 	}
 }
 
-static void	run_game_loop(t_game *game)
+void	run_game_loop(t_game *game)
 {
 	draw_map(game);
 	mlx_loop_hook(game->mlx, game_loop_bonus, game);
@@ -63,15 +63,16 @@ int	main(int argc, char **argv)
 	game.mlx = mlx_init();
 	if (!game.mlx)
 		exit_error(NULL, "mlx_init failed.");
-	game.map = read_map(argv[1]);
-	if (!game.map)
+	game.map_info.map = read_map(argv[1]);
+	if (!game.map_info.map)
 		exit_error(&game, "Failed to load map.");
-	validate_map(argv[1], game.map);
+	validate_map(argv[1], game.map_info.map);
 	init_player(&game);
 	init_enemy(&game);
 	load_images(&game);
-	game.win = mlx_new_window(game.mlx, TILE_SIZE * map_width(game.map),
-			TILE_SIZE * map_height(game.map), "so_long");
+	game.win = mlx_new_window(game.mlx, TILE_SIZE
+			* map_width(game.map_info.map), TILE_SIZE
+			* map_height(game.map_info.map), "so_long");
 	if (!game.win)
 		exit_error(&game, "Failed to create window.");
 	run_game_loop(&game);

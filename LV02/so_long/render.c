@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 18:18:12 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/16 19:51:47 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/07/22 14:47:19 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,35 +32,60 @@ void	load_images(t_game *game)
 
 	game->images.wall.img = mlx_xpm_file_to_image(game->mlx,
 			"textures/wall.xpm", &w, &h);
+	if (!game->images.wall.img)
+		exit_error(game, "failed to load wall.xpm");
 	game->images.wall.addr = mlx_get_data_addr(game->images.wall.img,
 			&game->images.wall.bpp, &game->images.wall.line_length,
 			&game->images.wall.endian);
+	if (!game->images.wall.addr)
+		exit_error(game, "failed to get addr of wall image");
 	game->images.floor.img = mlx_xpm_file_to_image(game->mlx,
 			"textures/floor.xpm", &w, &h);
+	if (!game->images.floor.img)
+		exit_error(game, "failed to load floor.xpm");
 	game->images.floor.addr = mlx_get_data_addr(game->images.floor.img,
 			&game->images.floor.bpp, &game->images.floor.line_length,
 			&game->images.floor.endian);
+	if (!game->images.floor.addr)
+		exit_error(game, "failed to get addr of floor image");
 	game->images.player.img = mlx_xpm_file_to_image(game->mlx,
 			"textures/player.xpm", &w, &h);
+	if (!game->images.player.img)
+		exit_error(game, "failed to load player.xpm");
 	game->images.player.addr = mlx_get_data_addr(game->images.player.img,
 			&game->images.player.bpp, &game->images.player.line_length,
 			&game->images.player.endian);
+	if (!game->images.player.addr)
+		exit_error(game, "failed to get addr of player image");
 	game->images.collectible.img = mlx_xpm_file_to_image(game->mlx,
 			"textures/collectible.xpm", &w, &h);
+	if (!game->images.collectible.img)
+		exit_error(game, "failed to load collectible.xpm");
 	game->images.collectible.addr = mlx_get_data_addr(game->images.collectible.img,
 			&game->images.collectible.bpp,
 			&game->images.collectible.line_length,
 			&game->images.collectible.endian);
+	if (!game->images.collectible.addr)
+		exit_error(game, "failed to get addr of collectible image");
 	game->images.enemy.img = mlx_xpm_file_to_image(game->mlx,
 			"textures/enemy.xpm", &w, &h);
+	if (!game->images.enemy.img)
+		exit_error(game, "failed to load enemy.xpm");
 	game->images.enemy.addr = mlx_get_data_addr(game->images.enemy.img,
 			&game->images.enemy.bpp, &game->images.enemy.line_length,
 			&game->images.enemy.endian);
+	if (!game->images.enemy.addr)
+		exit_error(game, "failed to get addr of enemy image");
 	game->images.exit.img = mlx_xpm_file_to_image(game->mlx,
 			"textures/exit.xpm", &w, &h);
+	if (!game->images.exit.img)
+		exit_error(game, "failed to load exit.xpm");
 	game->images.exit.addr = mlx_get_data_addr(game->images.exit.img,
 			&game->images.exit.bpp, &game->images.exit.line_length,
 			&game->images.exit.endian);
+	if (!game->images.exit.addr)
+		exit_error(game, "failed to get addr of exit image");
+	init_buffer_image(game);
 }
 
 void	copy_texture_to_buffer(t_game *game, t_image *src, int dst_x, int dst_y)

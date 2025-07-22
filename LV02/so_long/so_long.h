@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 18:07:03 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/16 19:46:11 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/07/22 14:41:43 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,8 @@ void			exit_error(t_game *game, const char *message);
 void			check_map_file_name(const char *filename);
 void			validate_map(const char *filename, char **map);
 void			init_buffer_image(t_game *game);
-void			copy_texture_to_buffer(t_game *game, char *tex_addr, int tex_w,
-					int tex_h, int dst_x, int dst_y);
+void			copy_texture_to_buffer(t_game *game, t_image *src, int dst_x,
+					int dst_y);
 void			run_game_loop(t_game *game);
 
 # define ESC_KEY 65307
