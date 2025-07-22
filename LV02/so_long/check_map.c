@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 16:26:03 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/16 18:48:46 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/07/22 15:23:31 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,5 @@ void	validate_map(const char *filename, char **map)
 	check_horizontal_walls(map);
 	check_vertical_walls(map);
 	check_required_elements(map);
+	check_valid_path(map);
 }

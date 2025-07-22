@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 13:37:47 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/10 16:18:48 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/07/22 15:26:41 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,25 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strdup(const char *s)
-{
-	size_t	len;
-	size_t	i;
-	char	*copy;
+// char	*ft_strdup(const char *s)
+// {
+// 	size_t	len;
+// 	size_t	i;
+// 	char	*copy;
 
-	len = ft_strlen(s);
-	copy = malloc(len + 1);
-	if (copy == NULL)
-		return ((NULL));
-	i = 0;
-	while (i < len)
-	{
-		copy[i] = s[i];
-		i++;
-	}
-	copy[i] = '\0';
-	return (copy);
-}
+// 	len = ft_strlen(s);
+// 	copy = malloc(len + 1);
+// 	if (copy == NULL)
+// 		return ((NULL));
+// 	i = 0;
+// 	while (i < len)
+// 	{
+// 		copy[i] = s[i];
+// 		i++;
+// 	}
+// 	copy[i] = '\0';
+// 	return (copy);
+// }
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
