@@ -25,7 +25,9 @@ SRCS_MANDATORY = \
 	check_map.c \
 	check_map_utils.c \
 	load_images.c \
-	pass_check.c
+	pass_check.c \
+	cleanup_game.c \
+	game_init.c
 
 SRCS_BONUS = \
 	enemy_logic_bonus.c \
@@ -40,7 +42,9 @@ SRCS_BONUS = \
 	check_map.c \
 	check_map_utils.c \
 	load_images.c \
-	pass_check.c
+	pass_check.c \
+	cleanup_game.c \
+	game_init_bonus.c
 
 ifeq ($(MODE),BONUS)
     SRCS = $(SRCS_BONUS)

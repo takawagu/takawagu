@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:56:36 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/22 15:02:13 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/07/23 16:05:28 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,13 @@ void	init_buffer_image(t_game *game)
 	w = TILE_SIZE * map_width(game->map_info.map);
 	h = TILE_SIZE * map_height(game->map_info.map);
 	game->images.buffer.img = mlx_new_image(game->mlx, w, h);
+	if (!game->images.buffer.img)
+		exit_error(game, "failed to create buffer image");
 	game->images.buffer.addr = mlx_get_data_addr(game->images.buffer.img,
 			&game->images.buffer.bpp, &game->images.buffer.line_length,
 			&game->images.buffer.endian);
+	if (!game->images.buffer.addr)
+		exit_error(game, "failed to get buffer image address");
 }
 
 static void	load_xpm(t_game *game, t_image *img, char *path, char *desc)

@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:40:23 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/16 18:45:18 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/07/23 15:31:03 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,26 @@ void	check_rectangular(char **map)
 		}
 		i++;
 	}
+}
+
+int	map_width(char **map)
+{
+	int	len;
+
+	len = 0;
+	while (map[0][len])
+		len++;
+	return (len);
+}
+
+int	map_height(char **map)
+{
+	int	height;
+
+	height = 0;
+	while (map[height])
+		height++;
+	return (height);
 }
 
 void	check_horizontal_walls(char **map)
