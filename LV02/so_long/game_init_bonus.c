@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:35:49 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/23 16:36:06 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/07/23 16:43:51 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	check_map_file_name(const char *filename)
 		exit(1);
 	}
 }
+
 void	init_game_bonus(t_game *game, char *map_path)
 {
 	ft_memset(game, 0, sizeof(t_game));
@@ -48,8 +49,8 @@ void	init_game_bonus(t_game *game, char *map_path)
 
 void	create_window(t_game *game)
 {
-	int width;
-	int height;
+	int	width;
+	int	height;
 
 	width = TILE_SIZE * map_width(game->map_info.map);
 	height = TILE_SIZE * map_height(game->map_info.map);
