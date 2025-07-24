@@ -6,11 +6,19 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:54:11 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/23 16:02:10 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/07/24 11:24:24 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	exit_error(t_game *game, const char *msg)
+{
+	if (game)
+		cleanup_game(game);
+	ft_printf("Error\n%s\n", msg);
+	exit(EXIT_FAILURE);
+}
 
 void	free_map(char **map)
 {

@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 14:11:38 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/16 19:42:55 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/07/24 11:33:45 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,7 @@ void	init_enemy(t_game *game)
 		y++;
 	}
 	if (!found)
-	{
-		ft_printf("Error: Enemy (X) not found in the map.\n");
-		exit(1);
-	}
+		exit_error(game, "Enemy not found in the map.");
 }
 
 int	try_change_enemy_direction(t_game *game)

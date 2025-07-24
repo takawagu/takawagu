@@ -6,13 +6,13 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 15:19:49 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/22 15:27:33 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/07/24 11:11:21 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**duplicate_map(char **map)
+static char	**duplicate_map(char **map)
 {
 	int		i;
 	int		height;
@@ -41,7 +41,7 @@ char	**duplicate_map(char **map)
 	return (copy);
 }
 
-void	dfs(char **map, int y, int x)
+static void	dfs(char **map, int y, int x)
 {
 	if (map[y][x] == '1' || map[y][x] == 'X')
 		return ;
