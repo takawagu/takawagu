@@ -6,11 +6,24 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 17:52:03 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/05 12:44:32 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/05 13:16:15 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	init_map_size(t_game *game)
+{
+	int	width;
+	int	height;
+
+	height = 0;
+	width = ft_strlen(game->map_info.map[0]);
+	while (game->map_info.map[height])
+		height++;
+	game->map_info.width = width;
+	game->map_info.height = height;
+}
 
 static int	count_lines(const char *filename)
 {
@@ -68,7 +81,12 @@ char	**read_map(const char *filename)
 		free(map);
 		return (NULL);
 	}
-	fill_map_array(fd, map);
+	if (!fill_map_array(fd, map))
+	{
+		close(fd);
+		free_map(map);
+		return (NULL);
+	}
 	close(fd);
 	return (map);
 }

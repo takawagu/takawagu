@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:23:54 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/05 12:34:06 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/05 13:23:47 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,17 @@
 void	check_map_file_name(const char *filename, t_game *game)
 {
 	int	len;
+	int	fd;
 
+	if (!filename)
+		exit_error(game, "No filename provided.");
 	len = ft_strlen(filename);
-	if (len < 5 || ft_strncmp(filename + len - 4, ".ber", 4) != 0)
-		exit_error(game, "Map file must have .ber extension");
+	if (len < 4 || ft_strncmp(filename + len - 4, ".ber", 4) != 0)
+		exit_error(game, "Map file must have .ber extension.");
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		exit_error(game, "Map file does not exist or cannot be opened.");
+	close(fd);
 }
 
 void	init_game(t_game *game, char *map_path)

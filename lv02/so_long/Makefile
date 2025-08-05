@@ -17,7 +17,6 @@ NAME = so_long
 SRCS_MANDATORY = \
 	main.c \
 	hooks.c \
-	map_utils.c \
 	map_read.c \
 	render.c \
 	player.c \
@@ -34,7 +33,6 @@ SRCS_BONUS = \
 	enemy_utils_bonus.c \
 	main_bonus.c \
 	hooks.c \
-	map_utils.c \
 	map_read.c \
 	render.c \
 	player.c \

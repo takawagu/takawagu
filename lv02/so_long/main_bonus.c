@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 17:36:53 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/24 12:30:20 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/05 13:26:25 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
+	ft_memset(&game, 0, sizeof(t_game));
 	check_args(argc, argv, &game);
 	init_game_bonus(&game, argv[1]);
 	create_window(&game);

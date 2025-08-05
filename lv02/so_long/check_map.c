@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 16:26:03 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/24 11:29:41 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/05 13:27:06 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,17 @@ void	check_required_elements(char **map, t_game *game)
 void	validate_map(const char *filename, char **map, t_game *game)
 {
 	int	len;
+	int	fd;
 
+	if (!filename || !map)
+		exit_error(game, "Invalid filename or map pointer.");
 	len = ft_strlen(filename);
 	if (len < 4 || ft_strncmp(filename + len - 4, ".ber", 4) != 0)
-		exit_error(game, "Map file must have .ber extension");
+		exit_error(game, "Map file must have .ber extension.");
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		exit_error(game, "Failed to open map file.");
+	close(fd);
 	check_rectangular(map, game);
 	check_horizontal_walls(map, game);
 	check_vertical_walls(map, game);

@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 18:07:03 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/05 12:34:30 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/05 13:13:48 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,61 +96,45 @@ int				map_width(char **map);
 int				map_height(char **map);
 void			check_horizontal_walls(char **map, t_game *game);
 void			check_vertical_walls(char **map, t_game *game);
-
 t_count			count_map_elements(char **map);
 void			validate_map_elements(t_count count, t_game *game);
 void			check_required_elements(char **map, t_game *game);
 void			validate_map(const char *filename, char **map, t_game *game);
-
 void			exit_error(t_game *game, const char *message);
 void			free_map(char **map);
 void			destroy_images(t_game *game);
 void			exit_game(t_game *game);
-
 int				handle_key(int keycode, t_game *game);
 int				close_window(t_game *game);
-
 void			init_buffer_image(t_game *game);
 void			load_images(t_game *game);
-
 int				game_loop(t_game *game);
 void			run_game_loop(t_game *game);
-
 char			**read_map(const char *filename);
-
 void			print_map(char **map);
 void			init_map_size(t_game *game);
-
 void			check_valid_path(char **map);
-
 void			init_player(t_game *game);
 void			move_player(t_game *game, int dx, int dy);
-
 void			copy_texture_to_buffer(t_game *game, t_image *src, int dst_x,
 					int dst_y);
 void			draw_tile(t_game *game, int x, int y);
 void			draw_map(t_game *game);
-
 void			check_map_file_name(const char *filename, t_game *game);
-
 void			exit_error(t_game *game, const char *msg);
 void			init_game(t_game *game, char *map_path);
 void			create_window(t_game *game);
-
-// bonus
 void			cleanup_game(t_game *game);
 void			check_player_collision(t_game *game);
 void			choose_random_enemy_direction(t_game *game);
 void			try_move_enemy(t_game *game);
 void			update_enemy(t_game *game);
 void			move_enemy(t_game *game, int new_x, int new_y);
-
 int				check_and_set_enemy(t_game *game, int x, int y);
 void			init_enemy(t_game *game);
 int				try_change_enemy_direction(t_game *game);
 int				can_move_enemy(t_game *game, int x, int y);
 void			handle_enemy_direction(t_game *game);
-
 void			init_game_bonus(t_game *game, char *map_path);
 
 #endif
