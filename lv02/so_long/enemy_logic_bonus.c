@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 16:23:35 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/05 12:39:34 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/05 13:29:08 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	try_move_enemy(t_game *game)
 void	update_enemy(t_game *game)
 {
 	game->enemy.move_timer++;
-	if (game->enemy.move_timer < 30)
+	if (game->enemy.move_timer < 40)
 		return ;
 	game->enemy.move_timer = 0;
 	try_move_enemy(game);
