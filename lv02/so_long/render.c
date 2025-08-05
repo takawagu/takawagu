@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 18:18:12 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/05 12:34:23 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/05 12:47:33 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,27 @@
 
 void	draw_tile(t_game *game, int x, int y)
 {
-	mlx_put_image_to_window(game->mlx, game->win, game->images.floor.img, x
-		* TILE_SIZE, y * TILE_SIZE);
-	if (game->map_info.map[y][x] == '1')
+	char	tile;
+
+	tile = game->map_info.map[y][x];
+	if (tile == '1')
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->images.wall.img, x
 			* TILE_SIZE, y * TILE_SIZE);
 		return ;
 	}
+	mlx_put_image_to_window(game->mlx, game->win, game->images.floor.img, x
+		* TILE_SIZE, y * TILE_SIZE);
 	if (game->enemy.x == x && game->enemy.y == y)
 		mlx_put_image_to_window(game->mlx, game->win, game->images.enemy.img, x
 			* TILE_SIZE, y * TILE_SIZE);
-	if (game->map_info.map[y][x] == 'C')
+	else if (tile == 'C')
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->images.collectible.img, x * TILE_SIZE, y * TILE_SIZE);
-	else if (game->map_info.map[y][x] == 'E')
+	else if (tile == 'E')
 		mlx_put_image_to_window(game->mlx, game->win, game->images.exit.img, x
 			* TILE_SIZE, y * TILE_SIZE);
-	else if (game->map_info.map[y][x] == 'P')
+	else if (tile == 'P')
 		mlx_put_image_to_window(game->mlx, game->win, game->images.player.img, x
 			* TILE_SIZE, y * TILE_SIZE);
 }
