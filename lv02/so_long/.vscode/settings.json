@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"ft_printf.h": "c",
+		"get_next_line.h": "c",
+		"libft.h": "c",
+		"so_long.h": "c"
+	}
+}
