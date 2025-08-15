@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player.c                                           :+:      :+:    :+:   */
+/*   player_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/11 14:24:50 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/15 17:51:50 by takawagu         ###   ########.fr       */
+/*   Created: 2025/08/15 17:51:30 by takawagu          #+#    #+#             */
+/*   Updated: 2025/08/15 17:51:33 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,12 @@ static void	handle_tile_effect(t_game *game, int x, int y)
 	char	tile;
 
 	tile = game->map_info.map[y][x];
-	if (tile == 'C')
+	if (game->enemy_enabled && tile == 'X')
+	{
+		game_over(game);
+		exit_game(game);
+	}
+	else if (tile == 'C')
 	{
 		game->map_info.collectibles--;
 		game->map_info.map[y][x] = '0';
@@ -87,8 +92,8 @@ static void	update_player_position(t_game *game, int new_x, int new_y)
 
 void	move_player(t_game *game, int dx, int dy)
 {
-	int	new_x;
-	int	new_y;
+	int new_x;
+	int new_y;
 
 	new_x = game->player_x + dx;
 	new_y = game->player_y + dy;

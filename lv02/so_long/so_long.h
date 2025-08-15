@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 18:07:03 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/05 13:13:48 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/15 17:42:35 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ typedef struct s_game
 	int			player_x;
 	int			player_y;
 	int			move_count;
+	char		player_under;
+	int			enemy_enabled;
 	t_images	images;
 	t_map_info	map_info;
 	t_enemy		enemy;
@@ -136,5 +138,6 @@ int				try_change_enemy_direction(t_game *game);
 int				can_move_enemy(t_game *game, int x, int y);
 void			handle_enemy_direction(t_game *game);
 void			init_game_bonus(t_game *game, char *map_path);
+void			game_over(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 16:23:35 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/05 13:29:08 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/15 18:03:25 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@ void	move_enemy(t_game *game, int new_x, int new_y)
 	game->map_info.map[new_y][new_x] = 'X';
 }
 
-void	check_player_collision(t_game *game)
+void	game_over(t_game *game)
 {
 	if (game->enemy.x == game->player_x && game->enemy.y == game->player_y)
-		exit_error(game, "You were caught by Piccolo!");
+	{
+		ft_printf("%s\n", "You were caught by Piccolo!");
+		exit_game(game);
+	}
 }
 
 void	choose_random_enemy_direction(t_game *game)
@@ -90,5 +93,5 @@ void	update_enemy(t_game *game)
 		return ;
 	game->enemy.move_timer = 0;
 	try_move_enemy(game);
-	check_player_collision(game);
+	game_over(game);
 }

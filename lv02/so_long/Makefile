@@ -35,7 +35,7 @@ SRCS_BONUS = \
 	hooks.c \
 	map_read.c \
 	render.c \
-	player.c \
+	player_bonus.c \
 	exit_game.c \
 	check_map.c \
 	check_map_utils.c \
