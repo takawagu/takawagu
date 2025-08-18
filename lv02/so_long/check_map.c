@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 16:26:03 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/15 17:06:47 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/18 14:26:04 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ t_count	count_map_elements(char **map)
 
 void	validate_map_elements(t_count cnt, t_game *game)
 {
-	if (cnt.p != 1 || cnt.c < 1 || cnt.e < 1)
-		exit_error(game, "Map must contain exactly 1 P, at least 1 C,and 1 E.");
+	if (cnt.p != 1 || cnt.c < 1 || cnt.e != 1)
+		exit_error(game, "Map must contain exactly 1 P and E, at least 1 C");
 }
 
 void	check_required_elements(char **map, t_game *game)

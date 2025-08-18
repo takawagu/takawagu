@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 15:19:49 by takawagu          #+#    #+#             */
-/*   Updated: 2025/07/24 11:11:21 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/15 19:11:43 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,7 @@ static void	check_unreachable(char **map)
 		{
 			if (map[y][x] == 'C' || map[y][x] == 'E')
 			{
-				ft_printf("Error: No valid path to allcollectibles and exit\n");
-				exit(1);
+				exit_error(NULL, "Unreachable collectible or exit");
 			}
 			x++;
 		}
@@ -108,7 +107,7 @@ void	check_valid_path(char **map)
 
 	copy = duplicate_map(map);
 	if (!copy)
-		exit_error(NULL, "Error\nFailed to copy map for path check");
+		exit_error(NULL, "Failed to copy map for path check");
 	find_and_run_dfs(copy);
 	check_unreachable(copy);
 }

@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 18:18:12 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/15 18:13:41 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/15 18:23:25 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,9 @@ void	draw_tile(t_game *game, int x, int y)
 
 	tile = game->map_info.map[y][x];
 	if (tile == '1')
-	{
 		mlx_put_image_to_window(game->mlx, game->win, game->images.wall.img, x
 			* TILE_SIZE, y * TILE_SIZE);
-		return ;
-	}
-	if (tile == '0')
+	else if (tile == '0')
 		mlx_put_image_to_window(game->mlx, game->win, game->images.floor.img, x
 			* TILE_SIZE, y * TILE_SIZE);
 	else if (game->enemy.x == x && game->enemy.y == y)

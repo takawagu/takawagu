@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 18:07:03 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/15 17:42:35 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/15 19:22:33 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,7 @@ void			run_game_loop(t_game *game);
 char			**read_map(const char *filename);
 void			print_map(char **map);
 void			init_map_size(t_game *game);
-void			check_valid_path(char **map);
-void			init_player(t_game *game);
+void			check_valid_path(char **map) ;void init_player(t_game *game);
 void			move_player(t_game *game, int dx, int dy);
 void			copy_texture_to_buffer(t_game *game, t_image *src, int dst_x,
 					int dst_y);
