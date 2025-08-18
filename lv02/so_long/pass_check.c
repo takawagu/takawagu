@@ -6,54 +6,28 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 15:19:49 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/15 19:11:43 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/18 20:45:42 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static char	**duplicate_map(char **map)
-{
-	int		i;
-	int		height;
-	char	**copy;
-
-	height = 0;
-	while (map[height])
-		height++;
-	copy = malloc(sizeof(char *) * (height + 1));
-	if (!copy)
-		return (NULL);
-	i = 0;
-	while (i < height)
-	{
-		copy[i] = ft_strdup(map[i]);
-		if (!copy[i])
-		{
-			while (--i >= 0)
-				free(copy[i]);
-			free(copy);
-			return (NULL);
-		}
-		i++;
-	}
-	copy[i] = NULL;
-	return (copy);
-}
-
 static void	dfs(char **map, int y, int x)
 {
+	int	h;
+	int	w;
+
+	h = map_height(map);
+	w = map_width(map);
+	if (y < 0 || y >= h || x < 0 || x >= w)
+		return ;
 	if (map[y][x] == '1' || map[y][x] == 'X')
 		return ;
 	map[y][x] = 'X';
-	if (y > 0)
-		dfs(map, y - 1, x);
-	if (map[y + 1])
-		dfs(map, y + 1, x);
-	if (x > 0)
-		dfs(map, y, x - 1);
-	if (map[y][x + 1])
-		dfs(map, y, x + 1);
+	dfs(map, y - 1, x);
+	dfs(map, y + 1, x);
+	dfs(map, y, x - 1);
+	dfs(map, y, x + 1);
 }
 
 static void	find_and_run_dfs(char **map)
@@ -78,36 +52,60 @@ static void	find_and_run_dfs(char **map)
 	}
 }
 
-static void	check_unreachable(char **map)
+static int	has_unreachable(char **m)
 {
 	int	y;
 	int	x;
 
 	y = 0;
-	while (map[y])
+	while (m[y])
 	{
 		x = 0;
-		while (map[y][x])
+		while (m[y][x])
 		{
-			if (map[y][x] == 'C' || map[y][x] == 'E')
-			{
-				exit_error(NULL, "Unreachable collectible or exit");
-			}
+			if (m[y][x] == 'C' || m[y][x] == 'E')
+				return (1);
 			x++;
 		}
-		free(map[y]);
 		y++;
 	}
-	free(map);
+	return (0);
 }
 
-void	check_valid_path(char **map)
+static void	free_map_copy(char **copy)
+{
+	int	y;
+
+	if (!copy)
+		return ;
+	y = 0;
+	while (copy[y])
+	{
+		free(copy[y]);
+		y++;
+	}
+	free(copy);
+}
+
+int	check_valid_path(char **map, const char **errmsg)
 {
 	char	**copy;
 
 	copy = duplicate_map(map);
 	if (!copy)
-		exit_error(NULL, "Failed to copy map for path check");
+	{
+		if (errmsg)
+			*errmsg = "Failed to copy map for path check.";
+		return (0);
+	}
 	find_and_run_dfs(copy);
-	check_unreachable(copy);
+	if (has_unreachable(copy))
+	{
+		if (errmsg)
+			*errmsg = "Unreachable collectible or exit";
+		free_map_copy(copy);
+		return (0);
+	}
+	free_map_copy(copy);
+	return (1);
 }

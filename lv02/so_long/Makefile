@@ -23,8 +23,10 @@ SRCS_MANDATORY = \
 	exit_game.c \
 	check_map.c \
 	check_map_utils.c \
+	check_width_height.c \
 	load_images.c \
 	pass_check.c \
+	pass_check_utils.c \
 	cleanup_game.c \
 	game_init.c
 
@@ -39,8 +41,10 @@ SRCS_BONUS = \
 	exit_game.c \
 	check_map.c \
 	check_map_utils.c \
+	check_width_height.c \
 	load_images.c \
 	pass_check.c \
+	pass_check_utils.c \
 	cleanup_game.c \
 	game_init_bonus.c
 

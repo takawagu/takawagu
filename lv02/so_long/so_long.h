@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 18:07:03 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/15 19:22:33 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/18 17:52:49 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,15 +93,16 @@ typedef struct s_count
 # define KEY_D 100
 # define KEY_D_UPPER 68
 
-void			check_rectangular(char **map, t_game *game);
+int				check_rectangular(char **map, const char **errmsg);
 int				map_width(char **map);
 int				map_height(char **map);
-void			check_horizontal_walls(char **map, t_game *game);
-void			check_vertical_walls(char **map, t_game *game);
+int				check_horizontal_walls(char **map, const char **errmsg);
+int				check_vertical_walls(char **map, const char **errmsg);
 t_count			count_map_elements(char **map);
-void			validate_map_elements(t_count count, t_game *game);
-void			check_required_elements(char **map, t_game *game);
-void			validate_map(const char *filename, char **map, t_game *game);
+int				validate_map_elements(t_count cnt, const char **errmsg);
+int				check_required_elements(char **map, const char **errmsg);
+int				validate_map(const char *filename, char **map,
+					const char **errmsg);
 void			exit_error(t_game *game, const char *message);
 void			free_map(char **map);
 void			destroy_images(t_game *game);
@@ -115,7 +116,8 @@ void			run_game_loop(t_game *game);
 char			**read_map(const char *filename);
 void			print_map(char **map);
 void			init_map_size(t_game *game);
-void			check_valid_path(char **map) ;void init_player(t_game *game);
+int				check_valid_path(char **map, const char **errmsg);
+void			init_player(t_game *game);
 void			move_player(t_game *game, int dx, int dy);
 void			copy_texture_to_buffer(t_game *game, t_image *src, int dst_x,
 					int dst_y);
@@ -123,7 +125,7 @@ void			draw_tile(t_game *game, int x, int y);
 void			draw_map(t_game *game);
 void			check_map_file_name(const char *filename, t_game *game);
 void			exit_error(t_game *game, const char *msg);
-void			init_game(t_game *game, char *map_path);
+void			init_game(t_game *game, const char *map_path);
 void			create_window(t_game *game);
 void			cleanup_game(t_game *game);
 void			check_player_collision(t_game *game);
@@ -136,7 +138,12 @@ void			init_enemy(t_game *game);
 int				try_change_enemy_direction(t_game *game);
 int				can_move_enemy(t_game *game, int x, int y);
 void			handle_enemy_direction(t_game *game);
-void			init_game_bonus(t_game *game, char *map_path);
+void			init_game_bonus(t_game *game, const char *map_path);
 void			game_over(t_game *game);
+char			**duplicate_map(char **map);
+int				validate_map_path(const char *filename, const char **errmsg);
+int				validate_map_layout(char **map, const char **errmsg);
+int				map_width(char **map);
+int				map_height(char **map);
 
 #endif

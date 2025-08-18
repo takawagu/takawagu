@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 16:26:03 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/18 14:26:04 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/18 16:12:17 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,37 +38,77 @@ t_count	count_map_elements(char **map)
 	return (cnt);
 }
 
-void	validate_map_elements(t_count cnt, t_game *game)
+int	validate_map_elements(t_count cnt, const char **errmsg)
 {
 	if (cnt.p != 1 || cnt.c < 1 || cnt.e != 1)
-		exit_error(game, "Map must contain exactly 1 P and E, at least 1 C");
+	{
+		if (errmsg)
+			*errmsg = "Map must contain exactly 1 P and 1 E, and at least 1 C";
+		return (0);
+	}
+	return (1);
 }
 
-void	check_required_elements(char **map, t_game *game)
+int	check_required_elements(char **map, const char **errmsg)
 {
 	t_count	cnt;
 
+	if (!map || !map[0])
+	{
+		if (errmsg)
+			*errmsg = "Empty map";
+		return (0);
+	}
 	cnt = count_map_elements(map);
-	validate_map_elements(cnt, game);
+	return (validate_map_elements(cnt, errmsg));
 }
 
-void	validate_map(const char *filename, char **map, t_game *game)
+int	validate_map_path(const char *filename, const char **errmsg)
 {
 	int	len;
 	int	fd;
 
-	if (!filename || !map)
-		exit_error(game, "Invalid filename or map pointer.");
+	if (!filename)
+	{
+		if (errmsg)
+			*errmsg = "Invalid filename.";
+		return (0);
+	}
 	len = ft_strlen(filename);
 	if (len < 4 || ft_strncmp(filename + len - 4, ".ber", 4) != 0)
-		exit_error(game, "Map file must have .ber extension.");
+	{
+		if (errmsg)
+			*errmsg = "Map file must have .ber extension.";
+		return (0);
+	}
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		exit_error(game, "Failed to open map file.");
+	{
+		if (errmsg)
+			*errmsg = "Failed to open map file.";
+		return (0);
+	}
 	close(fd);
-	check_rectangular(map, game);
-	check_horizontal_walls(map, game);
-	check_vertical_walls(map, game);
-	check_required_elements(map, game);
-	check_valid_path(map);
+	return (1);
+}
+
+int	validate_map_layout(char **map, const char **errmsg)
+{
+	if (!map)
+	{
+		if (errmsg)
+			*errmsg = "Invalid map pointer.";
+		return (0);
+	}
+	if (!check_rectangular(map, errmsg))
+		return (0);
+	if (!check_horizontal_walls(map, errmsg))
+		return (0);
+	if (!check_vertical_walls(map, errmsg))
+		return (0);
+	if (!check_required_elements(map, errmsg))
+		return (0);
+	if (!check_valid_path(map, errmsg))
+		return (0);
+	return (1);
 }

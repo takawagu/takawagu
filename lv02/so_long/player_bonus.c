@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 17:51:30 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/15 18:21:05 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/18 15:49:52 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ static void	update_player_position(t_game *game, int new_x, int new_y)
 
 void	move_player(t_game *game, int dx, int dy)
 {
-	int new_x;
-	int new_y;
+	int	new_x;
+	int	new_y;
 
 	new_x = game->player_x + dx;
 	new_y = game->player_y + dy;

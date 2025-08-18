@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:23:54 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/15 19:34:37 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/18 17:32:14 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,22 @@ void	check_map_file_name(const char *filename, t_game *game)
 	close(fd);
 }
 
-void	init_game(t_game *game, char *map_path)
+void	init_game(t_game *g, const char *map_path)
 {
-	ft_memset(game, 0, sizeof(t_game));
-	game->map_info.map = read_map(map_path);
-	if (!game->map_info.map)
-		exit_error(game, "Failed to load map.");
-	validate_map(map_path, game->map_info.map, game);
-	init_player(game);
-	game->mlx = mlx_init();
-	if (!game->mlx)
-		exit_error(NULL, "mlx_init failed.");
-	load_images(game);
+	const char	*errmsg = NULL;
+
+	g->map_info.map = read_map(map_path);
+	if (!g->map_info.map)
+		exit_error(g, "Failed to load map.");
+	init_map_size(g);
+	if (!validate_map_path(map_path, &errmsg)
+		|| !validate_map_layout(g->map_info.map, &errmsg))
+		exit_error(g, "Invalid map.");
+	init_player(g);
+	g->mlx = mlx_init();
+	if (!g->mlx)
+		exit_error(g, "mlx_init failed.");
+	load_images(g);
 }
 
 void	create_window(t_game *game)
