@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 15:19:49 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/18 20:45:42 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/19 17:59:04 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ static void	dfs(char **map, int y, int x)
 	w = map_width(map);
 	if (y < 0 || y >= h || x < 0 || x >= w)
 		return ;
-	if (map[y][x] == '1' || map[y][x] == 'X')
+	if (map[y][x] == '1' || map[y][x] == 'V')
 		return ;
-	map[y][x] = 'X';
+	map[y][x] = 'V';
 	dfs(map, y - 1, x);
 	dfs(map, y + 1, x);
 	dfs(map, y, x - 1);

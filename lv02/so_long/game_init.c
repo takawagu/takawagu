@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 16:23:54 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/18 17:32:14 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/19 17:32:32 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ void	init_game(t_game *g, const char *map_path)
 	init_map_size(g);
 	if (!validate_map_path(map_path, &errmsg)
 		|| !validate_map_layout(g->map_info.map, &errmsg))
-		exit_error(g, "Invalid map.");
-	init_player(g);
+		if(errmsg)
+			exit_error(g, errmsg);
+		else
+			exit_error(g, "Invalid map.");
+	init_player_and_collectibles(g);
 	g->mlx = mlx_init();
 	if (!g->mlx)
 		exit_error(g, "mlx_init failed.");

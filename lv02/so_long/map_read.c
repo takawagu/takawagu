@@ -6,7 +6,7 @@
 /*   By: takawagu <takawagu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 17:52:03 by takawagu          #+#    #+#             */
-/*   Updated: 2025/08/05 13:16:15 by takawagu         ###   ########.fr       */
+/*   Updated: 2025/08/19 17:15:38 by takawagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,18 @@ static int	count_lines(const char *filename)
 static int	fill_map_array(int fd, char **map)
 {
 	char	*line;
-	int		i;
+	int		y;
 
-	i = 0;
+	y = 0;
 	line = get_next_line(fd);
 	while ((line))
 	{
-		map[i++] = ft_strtrim(line, "\n");
+		map[y++] = ft_strtrim(line, "\n");
 		free(line);
 		line = get_next_line(fd);
 	}
-	map[i] = NULL;
-	return (i);
+	map[y] = NULL;
+	return (y);
 }
 
 char	**read_map(const char *filename)
